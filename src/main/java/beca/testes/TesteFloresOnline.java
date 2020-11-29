@@ -58,7 +58,11 @@ public class TesteFloresOnline {
 	public void fluxoCompra() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Mauricio\\Documents\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.floresonline.com.br/");		
+		driver.get("https://www.floresonline.com.br/");	
+		//Montar o presente
+		driver.findElement(By.linkText("Monte seu presente")).click();
+		//Selecionar o endereco
+		
 	}
 
 }
