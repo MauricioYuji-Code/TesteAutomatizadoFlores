@@ -62,7 +62,9 @@ public class TesteFloresOnline {
 		//Montar o presente
 		driver.findElement(By.linkText("Monte seu presente")).click();
 		//Selecionar o endereco
-		
+		driver.findElement(By.cssSelector(".forbidden-busca-endereco-fake-input-text")).click();
+		driver.findElement(By.id("searchForbiddenInput")).sendKeys("09210630");
+		driver.findElement(By.cssSelector(".searchForbiddenSelected-1")).click();
 	}
 
 }
