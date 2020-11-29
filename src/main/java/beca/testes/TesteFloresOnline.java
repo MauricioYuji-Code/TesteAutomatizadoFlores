@@ -2,17 +2,20 @@ package beca.testes;
 
 import java.io.IOException;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import beca.helper.Print;
 
 public class TesteFloresOnline {
-	
+
 	Print print;
-	
+
 	WebDriver driver;
 	private final String EMAIL = "joaaaaaaaao@teste.com";
 	private final String NOME_USUARIO = "Joao da Silva";
@@ -49,22 +52,24 @@ public class TesteFloresOnline {
 		driver.findElement(By.id("btnMain")).click();
 		Print.tiraPrint(driver, "Conclusion");
 		// Sair da conta
-		//driver.findElement(By.linkText("Joao")).click();
-		//driver.findElement(By.linkText("SAIR")).click();
-		
+		// driver.findElement(By.linkText("Joao")).click();
+		// driver.findElement(By.linkText("SAIR")).click();
+
 	}
-	
+
 	@Test
 	public void fluxoCompra() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Mauricio\\Documents\\Drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.floresonline.com.br/");	
-		//Montar o presente
+		this.driver = new ChromeDriver();
+		driver.get("https://www.floresonline.com.br/");
+		// Montar o presente
 		driver.findElement(By.linkText("Monte seu presente")).click();
-		//Selecionar o endereco
-		driver.findElement(By.cssSelector(".forbidden-busca-endereco-fake-input-text")).click();
+		// Selecionar o endereco
+		driver.findElement(By.cssSelector(".forbidden-busca-endereco-fake-input")).click();
 		driver.findElement(By.id("searchForbiddenInput")).sendKeys("09210630");
-		driver.findElement(By.cssSelector(".searchForbiddenSelected-1")).click();
+		// driver.findElement(By.id("searchForbiddenInput")).click();
+		driver.findElement(By.id("searchForbiddenInput")).sendKeys(Keys.ENTER);
+
 	}
 
 }
