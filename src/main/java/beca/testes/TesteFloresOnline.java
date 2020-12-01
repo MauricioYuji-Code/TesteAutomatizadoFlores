@@ -58,15 +58,17 @@ public class TesteFloresOnline {
 	}
 
 	@Test
-	public void fluxoCompra() {
+	public void fluxoCompra() throws IOException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Mauricio\\Documents\\Drivers\\chromedriver.exe");
 		this.driver = new ChromeDriver();
 		driver.get("https://www.floresonline.com.br/");
 		// Montar o presente
 		driver.findElement(By.linkText("Monte seu presente")).click();
+		Print.tiraPrint(driver, "Monte seu presente");
 		// Selecionar o endereco
 		driver.findElement(By.cssSelector(".forbidden-busca-endereco-fake-input")).click();
 		driver.findElement(By.id("searchForbiddenInput")).sendKeys("09210630");
+		Print.tiraPrint(driver, "Preenchimento do campo de cep");
 		// driver.findElement(By.id("searchForbiddenInput")).click();
 		driver.findElement(By.id("searchForbiddenInput")).sendKeys(Keys.ENTER);
 
