@@ -2,6 +2,7 @@ package beca.testes;
 
 import java.io.IOException;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +12,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import beca.helper.Print;
+import beca.helper.Word;
 
 public class TesteFloresOnline {
 
 	Print print;
 
 	WebDriver driver;
-	private final String EMAIL = "joaaaaaaaao@teste.com";
+	private final String EMAIL = "joaaaaaaaaaao@teste.com";
 	private final String NOME_USUARIO = "Joao da Silva";
 	private final String TELEFONE = "11940028922";
 	private final String SENHA = "123465";
@@ -72,6 +74,12 @@ public class TesteFloresOnline {
 		// driver.findElement(By.id("searchForbiddenInput")).click();
 		driver.findElement(By.id("searchForbiddenInput")).sendKeys(Keys.ENTER);
 
+	}
+	
+	@Test
+	public void test() throws IOException, InvalidFormatException {
+		System.out.println("teste");
+		Word.transferToDoc();
 	}
 
 }
